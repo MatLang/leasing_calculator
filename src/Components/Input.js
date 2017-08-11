@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+// stateless functional component because state of form elements
+// lives inside the app's state
 const Input = (props) => {
   return (
     <fieldset className="row">

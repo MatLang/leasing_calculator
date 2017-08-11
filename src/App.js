@@ -16,6 +16,8 @@ class App extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  // set State based on the form elements principal, interest rate
+  // and duration in months
   handleInputChange(event) {
     const target = event.target;
     const value = target.value;
@@ -26,7 +28,7 @@ class App extends Component {
     })
     console.log(this.state);
   }
-
+  // calculate monthly rate once the user submits the data
   onSubmit(event){
     event.preventDefault()
     const {principal, interest_rate, duration} = this.state;
