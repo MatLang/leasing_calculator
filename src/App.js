@@ -28,12 +28,19 @@ class App extends Component {
     })
     console.log(this.state);
   }
+
+  // calculate monthly rate based on given data
+  // every function should only do on thing as a general rule
+  // no need to bind to this because function is not passed down to component yet
+  calculateMonthlyRate(principal,interest_rate,duration){
+    return principal*(0.01*interest_rate/12)/
+           ((1-(Math.pow(1+(0.01*interest_rate/12),-duration))));
+  }
   // calculate monthly rate once the user submits the data
   onSubmit(event){
     event.preventDefault()
     const {principal, interest_rate, duration} = this.state;
-    let monthly_rate = principal*(0.01*interest_rate/12)/
-           ((1-(Math.pow(1+(0.01*interest_rate/12),-duration))))
+    let monthly_rate = this.calculateMonthlyRate(principal,interest_rate,duration)
     monthly_rate = `${monthly_rate.toFixed(2)} €`;
     this.setState({monthly_rate})
   }
