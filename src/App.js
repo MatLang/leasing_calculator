@@ -18,13 +18,15 @@ class App extends Component {
 
   // set State based on the form elements principal, interest rate
   // and duration in months
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+  handleInputChange({ target: { value, name } }) {
+    //const { target: { value, name } } = event;
+    //const target = event.target;
+    //const value = event.target.value;
+    //const name = event.target.name;
 
     this.setState({
       [name]: value
+
     })
     console.log(this.state);
   }
